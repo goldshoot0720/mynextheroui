@@ -28,11 +28,11 @@ export const siteConfig = {
     },
     {
       label: "經歷",
-      href: "/docs",
+      href: "/experience",
     },
     {
       label: "團隊成員",
-      href: "/pricing",
+      href: "/member",
     },,
     {
       label: "關於",
