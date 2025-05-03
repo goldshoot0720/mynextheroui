@@ -35,7 +35,7 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           {/* Logo 可補上 */}
           <Logo className="h-6 w-6" />
-          <span className="font-bold text-lg">鋒兄平台</span>
+          <span className="font-bold text-lg">草包鋒兄</span>
         </NavbarBrand>
 
         {/* 桌機版選單 */}
