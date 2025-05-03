@@ -85,7 +85,7 @@ export default function ExperiencePage() {
         <CardBody>
         <p>黨員直選黨主席</p>
           <p>輔選臺北市議員有功</p>
-          <p>輔選22縣市有功</p>
+          <p>輔選全台縣市長有功</p>
         </CardBody>
         <Divider />
         <CardFooter>
