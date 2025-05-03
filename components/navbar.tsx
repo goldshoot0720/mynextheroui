@@ -30,10 +30,15 @@ import {
 export const Navbar = () => {
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
+      {/* 左側：Logo + 主選單（桌機用） */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
+          {/* Logo 可補上 */}
+          <Logo className="h-6 w-6" />
+          <span className="font-bold text-lg">鋒兄平台</span>
         </NavbarBrand>
 
+        {/* 桌機版選單 */}
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems
             .filter(Boolean)
@@ -54,12 +59,14 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+      {/* 小螢幕：主題切換 + Menu Toggle（手機 / 平板） */}
+      <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
 
-      <NavbarMenu>
+      {/* 手機 / 平板 選單項目 */}
+      <NavbarMenu className="z-50 bg-background p-4">
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems
             .filter(Boolean)
