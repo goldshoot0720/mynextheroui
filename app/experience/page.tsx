@@ -53,12 +53,39 @@ export default function ExperiencePage() {
           />
           <div className="flex flex-col">
             <p className="text-md">臺北市長候選人</p>
+            <p className="text-small text-default-500">2034</p>
+          </div>
+        </CardHeader>
+        <Divider />
+        <CardBody>
+        <p>輔選臺北市議員有功</p>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <Link isExternal showAnchorIcon href="https://www.gov.taipei/">
+            臺北市政府全球資訊網
+          </Link>
+        </CardFooter>
+      </Card>
+      <Card className="max-w-[400px]">
+        <CardHeader className="flex gap-3">
+          <Image
+            alt="heroui logo"
+            height={40}
+            radius="sm"
+            src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+            width={40}
+          />
+          <div className="flex flex-col">
+            <p className="text-md">臺北市長候選人</p>
             <p className="text-small text-default-500">2038</p>
           </div>
         </CardHeader>
         <Divider />
         <CardBody>
-          <p>黨主席</p>
+        <p>黨員直選黨主席</p>
+          <p>輔選臺北市議員有功</p>
+          <p>輔選22縣市有功</p>
         </CardBody>
         <Divider />
         <CardFooter>
