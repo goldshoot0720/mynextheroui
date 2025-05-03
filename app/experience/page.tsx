@@ -58,7 +58,7 @@ export default function ExperiencePage() {
         </CardHeader>
         <Divider />
         <CardBody>
-          <p>代理黨主席</p>
+          <p>黨主席</p>
         </CardBody>
         <Divider />
         <CardFooter>
