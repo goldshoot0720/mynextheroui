@@ -9,10 +9,7 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@heroui/navbar";
-import { Button } from "@heroui/button";
-import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
@@ -33,7 +30,6 @@ export const Navbar = () => {
       {/* 左側：Logo + 主選單（桌機用） */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
-          {/* Logo 可補上 */}
           <Logo className="h-6 w-6" />
           <span className="font-bold text-lg">草包鋒兄</span>
         </NavbarBrand>
@@ -57,6 +53,11 @@ export const Navbar = () => {
               </NavbarItem>
             ))}
         </ul>
+      </NavbarContent>
+
+      {/* 桌機版右上角主題切換 */}
+      <NavbarContent className="hidden lg:flex basis-1/5" justify="end">
+        <ThemeSwitch />
       </NavbarContent>
 
       {/* 小螢幕：主題切換 + Menu Toggle（手機 / 平板） */}
