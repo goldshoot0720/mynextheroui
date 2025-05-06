@@ -46,7 +46,7 @@ export const Navbar = () => {
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <audio ref={audio1} src="/synthesis1.wav" />
 
-          <span className="font-bold text-lg">草包鋒兄 2025</span>
+          <span className="font-bold text-lg">草包鋒兄</span>
 
           <button
             onClick={() => audio3.current?.play()}
