@@ -51,7 +51,6 @@ export default function RootLayout({
               <Link
                 className="flex items-center gap-1 text-current"
                 href="/"
-                title="heroui.com homepage"
               >
                 <span className="text-default-600">Powered by</span>
                 <p className="text-primary">草包鋒兄 2025</p>

@@ -5,7 +5,7 @@ export default function YearbookOrannualPage() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleTooltip = (index: number) => {
-    setActiveIndex(prev => (prev === index ? null : index));
+    setActiveIndex((prev) => (prev === index ? null : index));
   };
 
   const tooltips = [
@@ -25,34 +25,28 @@ export default function YearbookOrannualPage() {
       </h1>
 
       <div className="space-y-4 max-w-xl mx-auto text-base md:text-lg">
-        <div>
-          {tooltips.map((item, idx) => (
-            <div key={idx} className="mb-2">
-              {/* 顯示文字在左側 */}
-              <span>{item.text}</span>
-
-              {/* 右側顯示提示 ?! */}
-              {item.tip && (
-                <span
-                  onClick={() => toggleTooltip(idx)}
-                  className="ml-2 cursor-pointer text-blue-600 font-bold"
-                >
-                  ?!
-                </span>
-              )}
-
-              {/* 顯示提示框 */}
-              {activeIndex === idx && item.tip && (
-                <div className="mt-1 p-2 text-gray-800 bg-gray-100 border border-gray-300 rounded w-fit max-w-xs">
-                  {item.tip}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        {tooltips.map((item, idx) => (
+          <div key={`${item.text}-${idx}`} className="mb-2">
+            <span>{item.text}</span>
+            {item.tip && (
+              <button
+                onClick={() => toggleTooltip(idx)}
+                aria-label={`顯示提示：${item.tip}`}
+                className="ml-2 text-blue-600 font-bold cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 rounded"
+              >
+                ?!
+              </button>
+            )}
+            {activeIndex === idx && item.tip && (
+              <div className="mt-1 p-2 text-gray-800 bg-gray-100 border border-gray-300 rounded w-fit max-w-xs transition duration-150 ease-in-out">
+                {item.tip}
+              </div>
+            )}
+          </div>
+        ))}
 
         <div className="pt-6 text-sm text-gray-500 text-center">
-          ©桃園縣立東興國中第十七屆畢業紀念冊 2004
+          © 桃園縣立東興國中第十七屆畢業紀念冊 2004
         </div>
       </div>
     </div>

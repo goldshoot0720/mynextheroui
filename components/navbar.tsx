@@ -23,22 +23,39 @@ import {
   HeartFilledIcon,
   Logo,
 } from "@/components/icons";
-import { useRef } from 'react';
+import { useRef } from "react";
 
 export const Navbar = () => {
-  const audio1 = useRef(null);
-  const audio3 = useRef(null);
+  const audio1 = useRef<HTMLAudioElement>(null);
+  const audio3 = useRef<HTMLAudioElement>(null);
+
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
       {/* 左側：Logo + 主選單（桌機用） */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <Logo className="h-6 w-6" />
-          <button onClick={() => audio1.current?.play()}>▶️</button>
+
+          <button
+            onClick={() => audio1.current?.play()}
+            aria-label="播放音訊 synthesis1"
+            className="ml-2"
+          >
+            ▶️
+          </button>
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <audio ref={audio1} src="/synthesis1.wav" />
 
           <span className="font-bold text-lg">草包鋒兄 2025</span>
-          <button onClick={() => audio3.current?.play()}>▶️</button>
+
+          <button
+            onClick={() => audio3.current?.play()}
+            aria-label="播放音訊 synthesis3"
+            className="ml-2"
+          >
+            ▶️
+          </button>
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <audio ref={audio3} src="/synthesis3.wav" />
         </NavbarBrand>
 
@@ -86,8 +103,8 @@ export const Navbar = () => {
                     index === 2
                       ? "primary"
                       : index === siteConfig.navMenuItems.length - 1
-                        ? "danger"
-                        : "foreground"
+                      ? "danger"
+                      : "foreground"
                   }
                   href={item!.href}
                   size="lg"
