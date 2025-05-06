@@ -37,7 +37,7 @@ export const Navbar = () => {
           <button onClick={() => audio1.current?.play()}>▶️</button>
           <audio ref={audio1} src="/synthesis1.wav" />
 
-          <span className="font-bold text-lg">草包鋒兄</span>
+          <span className="font-bold text-lg">草包鋒兄 2025</span>
           <button onClick={() => audio3.current?.play()}>▶️</button>
           <audio ref={audio3} src="/synthesis3.wav" />
         </NavbarBrand>

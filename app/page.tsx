@@ -10,8 +10,8 @@ export default function Home() {
       </div>
       <Image
         src="/IMG_0032.jpg"
-        width={300}
-        height={300}
+        width={200}
+        height={200}
         alt="Picture of cat."
       />
     </>
