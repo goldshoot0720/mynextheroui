@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 
 export default function YearbookOrannualPage() {
@@ -19,8 +20,8 @@ export default function YearbookOrannualPage() {
   ];
 
   return (
-    <div className="min-h-screen px-4 py-8 font-sans text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-900">
-      <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-700 dark:text-gray-200 mb-8">
+    <div className="min-h-screen px-4 py-8 font-sans bg-background text-foreground">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-8">
         畢業紀念冊
       </h1>
 
@@ -32,20 +33,20 @@ export default function YearbookOrannualPage() {
               <button
                 onClick={() => toggleTooltip(idx)}
                 aria-label={`顯示提示：${item.tip}`}
-                className="ml-2 text-blue-600 dark:text-blue-400 font-bold cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-300 rounded"
+                className="ml-2 font-bold text-primary hover:underline focus:outline-none focus-visible:ring-2 ring-primary rounded"
               >
                 ?!
               </button>
             )}
             {activeIndex === idx && item.tip && (
-              <div className="mt-1 p-2 text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-500 rounded w-fit max-w-xs transition duration-150 ease-in-out">
+              <div className="mt-1 p-2 text-sm rounded bg-muted text-muted-foreground ring-1 ring-border w-fit max-w-xs transition duration-150 ease-in-out">
                 {item.tip}
               </div>
             )}
           </div>
         ))}
 
-        <div className="pt-6 text-sm text-gray-500 dark:text-gray-400 text-center">
+        <div className="pt-6 text-sm text-muted-foreground text-center">
           © 桃園縣立東興國中第十七屆畢業紀念冊 2004
         </div>
       </div>
