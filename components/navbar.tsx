@@ -23,15 +23,23 @@ import {
   HeartFilledIcon,
   Logo,
 } from "@/components/icons";
+import { useRef } from 'react';
 
 export const Navbar = () => {
+  const audio1 = useRef(null);
+  const audio3 = useRef(null);
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
       {/* 左側：Logo + 主選單（桌機用） */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <Logo className="h-6 w-6" />
+          <button onClick={() => audio1.current?.play()}>▶️</button>
+          <audio ref={audio1} src="/synthesis1.wav" />
+
           <span className="font-bold text-lg">草包鋒兄</span>
+          <button onClick={() => audio3.current?.play()}>▶️</button>
+          <audio ref={audio3} src="/synthesis3.wav" />
         </NavbarBrand>
 
         {/* 桌機版選單 */}
@@ -78,8 +86,8 @@ export const Navbar = () => {
                     index === 2
                       ? "primary"
                       : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
+                        ? "danger"
+                        : "foreground"
                   }
                   href={item!.href}
                   size="lg"
