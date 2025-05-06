@@ -19,9 +19,9 @@ export default function AboutPage() {
     <h1>
       Thank to React
     </h1>
-    <h1>
+    {/* <h1>
       Thank to Supabase
-    </h1>
+    </h1> */}
     <h1>
       Thank to ChatGPT
     </h1>
