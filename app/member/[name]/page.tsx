@@ -29,6 +29,33 @@ export default function MemberPage({ params }: MemberPageProps) {
 
   return (
     <>
+          {name === "草包鋒兄" && (
+        <Card className="max-w-[400px]">
+          <CardHeader className="flex gap-3">
+            <Image
+              alt="heroui logo"
+              height={40}
+              radius="sm"
+              src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+              width={40}
+            />
+            <div className="flex flex-col">
+              <p className="text-md">草包鋒兄</p>
+              <p className="text-small text-default-500">大家長</p>
+            </div>
+          </CardHeader>
+          <Divider />
+          <CardBody>
+            <p>桃園縣立東興國中第十七屆畢業生</p>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <Link isExternal showAnchorIcon href="https://www-ws.gov.taipei/001/Upload/297/relfile/7725/97235/5624f50e-9193-4c61-88f3-6a8686ee8adb.pdf">
+              市政大樓11F中央區
+            </Link>
+          </CardFooter>
+        </Card>
+      )}
       {name === "塗○傑" && (
         <Card className="max-w-[400px]">
           <CardHeader className="flex gap-3">
