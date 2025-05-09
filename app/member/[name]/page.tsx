@@ -9,10 +9,14 @@ import {
   Image,
 } from "@heroui/react";
 
-// ✅ Updated to use Next.js `PageProps` instead of manually typing
-import { PageProps } from "next";
+// Define the type for the params
+type MemberPageProps = {
+  params: {
+    name: string;
+  };
+};
 
-export default function MemberPage({ params }: PageProps) {
+export default function MemberPage({ params }: MemberPageProps) {
   const name = decodeURIComponent(params.name);
 
   return (
