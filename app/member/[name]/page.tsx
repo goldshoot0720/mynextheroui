@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from 'react';  // Add this import
 
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@heroui/react";
