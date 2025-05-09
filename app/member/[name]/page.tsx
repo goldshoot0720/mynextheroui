@@ -1,21 +1,13 @@
-"use client";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-  Link,
-  Image,
-} from "@heroui/react";
+import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@heroui/react";
 
-// Define the type for the params
+// Define the type for the params, extending the Next.js PageProps
 type MemberPageProps = {
   params: {
     name: string;
   };
 };
 
+// You can adjust the type of `params` to match Next.js PageProps
 export default function MemberPage({ params }: MemberPageProps) {
   const name = decodeURIComponent(params.name);
 
