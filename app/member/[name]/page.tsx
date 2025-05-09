@@ -9,6 +9,13 @@ import {
   Image,
 } from "@heroui/react";
 
+// ✅ 加上這段型別定義
+type MemberPageProps = {
+  params: {
+    name: string;
+  };
+};
+
 export default function MemberPage({ params }: MemberPageProps) {
   const name = decodeURIComponent(params.name);
 
