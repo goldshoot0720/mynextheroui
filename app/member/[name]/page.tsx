@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';  // Add this import
+
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@heroui/react";
 
 // Define the type for the props, where params will be passed as a promise
