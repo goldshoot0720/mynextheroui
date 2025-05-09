@@ -1,15 +1,28 @@
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@heroui/react";
 
-// Define the type for the params, extending the Next.js PageProps
+// Define the type for the props, where params will be passed as a promise
 type MemberPageProps = {
-  params: {
+  params: Promise<{
     name: string;
-  };
+  }>;
 };
 
 // You can adjust the type of `params` to match Next.js PageProps
 export default function MemberPage({ params }: MemberPageProps) {
-  const name = decodeURIComponent(params.name);
+  // Resolve the promise for params
+  const [resolvedParams, setResolvedParams] = useState<{ name: string } | null>(null);
+
+  useEffect(() => {
+    params.then(resolved => {
+      setResolvedParams(resolved);
+    });
+  }, [params]);
+
+  if (!resolvedParams) {
+    return <div>Loading...</div>;
+  }
+
+  const name = decodeURIComponent(resolvedParams.name);
 
   return (
     <>
