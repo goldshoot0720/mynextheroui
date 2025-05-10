@@ -58,12 +58,12 @@ export default function ExperiencePage() {
         </CardHeader>
         <Divider />
         <CardBody>
-        <p>輔選臺北市議員有功</p>
+        <p>以鋒兄出現在民調上為準</p>
         </CardBody>
         <Divider />
         <CardFooter>
-          <Link isExternal showAnchorIcon href="https://www.gov.taipei/">
-            臺北市政府全球資訊網
+          <Link isExternal showAnchorIcon href="https://www.tvbs.com.tw/poll-center">
+            民調中心 | TVBS
           </Link>
         </CardFooter>
       </Card>
@@ -83,7 +83,7 @@ export default function ExperiencePage() {
         </CardHeader>
         <Divider />
         <CardBody>
-        <p>黨員直選黨主席</p>
+        <p>黨主席候選人</p>
           <p>輔選臺北市議員有功</p>
           <p>輔選全台縣市長有功</p>
         </CardBody>
