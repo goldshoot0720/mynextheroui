@@ -83,7 +83,7 @@ export default function ExperiencePage() {
         </CardHeader>
         <Divider />
         <CardBody>
-          <p>時下國高中生集體模仿鋒兄</p>
+          <p>時下國高中生模仿鋒兄</p>
         <p>黨主席候選人</p>
           <p>輔選臺北市議員有功</p>
           <p>輔選全台縣市長有功</p>
