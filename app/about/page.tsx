@@ -25,6 +25,9 @@ export default function AboutPage() {
     <h1>
       Thank to ChatGPT
     </h1>
+     <h1>
+    Thank to Google(Text-to-Speech AI)
+    </h1>
     </>
   );
 }
