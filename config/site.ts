@@ -41,7 +41,7 @@ export const siteConfig = {
     {
       label: "團隊成員",
       href: "/member",
-    },,
+    },
     {
       label: "關於",
       href: "/about",
