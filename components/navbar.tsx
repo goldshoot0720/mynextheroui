@@ -13,6 +13,7 @@ import { Link } from "@heroui/link";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { useState, useRef } from "react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -23,60 +24,49 @@ import {
   HeartFilledIcon,
   Logo,
 } from "@/components/icons";
-import { useRef } from "react";
 
 export const Navbar = () => {
   const audio1 = useRef<HTMLAudioElement>(null);
   const audio3 = useRef<HTMLAudioElement>(null);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <HeroUINavbar maxWidth="xl" position="sticky">
+    <HeroUINavbar maxWidth="xl" position="sticky" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
       {/* 左側：Logo + 主選單（桌機用） */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <Logo className="h-6 w-6" />
 
-          <button
-            onClick={() => audio1.current?.play()}
-            aria-label="播放音訊 synthesis1"
-            className="ml-2"
-          >
+          <button onClick={() => audio1.current?.play()} aria-label="播放音訊 synthesis1" className="ml-2">
             ▶️
           </button>
-          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <audio ref={audio1} src="/synthesis1.wav" />
 
           <span className="font-bold text-lg">草包鋒兄</span>
 
-          <button
-            onClick={() => audio3.current?.play()}
-            aria-label="播放音訊 synthesis3"
-            className="ml-2"
-          >
+          <button onClick={() => audio3.current?.play()} aria-label="播放音訊 synthesis3" className="ml-2">
             ▶️
           </button>
-          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <audio ref={audio3} src="/synthesis3.wav" />
         </NavbarBrand>
 
         {/* 桌機版選單 */}
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems
-            .filter(Boolean)
-            .map((item) => (
-              <NavbarItem key={item!.href}>
-                <NextLink
-                  className={clsx(
-                    linkStyles({ color: "foreground" }),
-                    "data-[active=true]:text-primary data-[active=true]:font-medium"
-                  )}
-                  color="foreground"
-                  href={item!.href}
-                >
-                  {item!.label}
-                </NextLink>
-              </NavbarItem>
-            ))}
+          {siteConfig.navItems.filter(Boolean).map((item) => (
+            <NavbarItem key={item!.href}>
+              <NextLink
+                className={clsx(
+                  linkStyles({ color: "foreground" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                )}
+                color="foreground"
+                href={item!.href}
+              >
+                {item!.label}
+              </NextLink>
+            </NavbarItem>
+          ))}
         </ul>
       </NavbarContent>
 
@@ -88,27 +78,24 @@ export const Navbar = () => {
       {/* 小螢幕：主題切換 + Menu Toggle（手機 / 平板） */}
       <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
         <ThemeSwitch />
-        <NavbarMenuToggle />
+        <NavbarMenuToggle onClick={() => setIsMenuOpen(!isMenuOpen)} />
       </NavbarContent>
 
       {/* 手機 / 平板 選單項目 */}
       <NavbarMenu className="z-50 bg-background p-4">
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems
-            .filter(Boolean)
-            .map((item, index) => (
-              <NavbarMenuItem key={`${item!.href}-${index}`}>
-                <Link
-                  color={
-                      "foreground"
-                  }
-                  href={item!.href}
-                  size="lg"
-                >
-                  {item!.label}
-                </Link>
-              </NavbarMenuItem>
-            ))}
+          {siteConfig.navMenuItems.filter(Boolean).map((item, index) => (
+            <NavbarMenuItem key={`${item!.href}-${index}`}>
+              <Link
+                color="foreground"
+                href={item!.href}
+                size="lg"
+                onClick={() => setIsMenuOpen(false)} // 點擊後關閉選單
+              >
+                {item!.label}
+              </Link>
+            </NavbarMenuItem>
+          ))}
         </div>
       </NavbarMenu>
     </HeroUINavbar>
