@@ -1,7 +1,15 @@
 "use client";
-import React, { useState, useEffect } from 'react';  // Add this import
+import React, { useState, useEffect } from "react"; // Add this import
 
-import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@heroui/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Divider,
+  Link,
+  Image,
+} from "@heroui/react";
 
 // Define the type for the props, where params will be passed as a promise
 type MemberPageProps = {
@@ -13,10 +21,12 @@ type MemberPageProps = {
 // You can adjust the type of `params` to match Next.js PageProps
 export default function MemberPage({ params }: MemberPageProps) {
   // Resolve the promise for params
-  const [resolvedParams, setResolvedParams] = useState<{ name: string } | null>(null);
+  const [resolvedParams, setResolvedParams] = useState<{ name: string } | null>(
+    null
+  );
 
   useEffect(() => {
-    params.then(resolved => {
+    params.then((resolved) => {
       setResolvedParams(resolved);
     });
   }, [params]);
@@ -26,10 +36,11 @@ export default function MemberPage({ params }: MemberPageProps) {
   }
 
   const name = decodeURIComponent(resolvedParams.name);
+  const memberData = ["草包鋒兄", "塗○傑", "劉○萱", "賴○蓉"];
 
   return (
     <>
-          {name === "草包鋒兄" && (
+      {name === "草包鋒兄" && (
         <Card className="max-w-[400px]">
           <CardHeader className="flex gap-3">
             <Image
@@ -50,7 +61,11 @@ export default function MemberPage({ params }: MemberPageProps) {
           </CardBody>
           <Divider />
           <CardFooter>
-            <Link isExternal showAnchorIcon href="https://www-ws.gov.taipei/001/Upload/297/relfile/7725/97235/5624f50e-9193-4c61-88f3-6a8686ee8adb.pdf">
+            <Link
+              isExternal
+              showAnchorIcon
+              href="https://www-ws.gov.taipei/001/Upload/297/relfile/7725/97235/5624f50e-9193-4c61-88f3-6a8686ee8adb.pdf"
+            >
               市政大樓11F中央區
             </Link>
           </CardFooter>
@@ -135,6 +150,37 @@ export default function MemberPage({ params }: MemberPageProps) {
           <CardFooter>
             <Link isExternal showAnchorIcon href="https://dof.gov.taipei/">
               臺北市政府財政局
+            </Link>
+          </CardFooter>
+        </Card>
+      )}
+      {!memberData.includes(name) && (
+        <Card className="max-w-[400px]">
+          <CardHeader className="flex gap-3">
+            <Image
+              alt="heroui logo"
+              height={40}
+              radius="sm"
+              src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+              width={40}
+            />
+            <div className="flex flex-col">
+              <p className="text-md">{name}</p>
+              <p className="text-small text-default-500">無位子</p>
+            </div>
+          </CardHeader>
+          <Divider />
+          <CardBody>
+            <p>和鋒兄無關係</p>
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <Link
+              isExternal
+              showAnchorIcon
+              href="https://1999.gov.taipei/Front/main"
+            >
+              臺北市陳情系統1999
             </Link>
           </CardFooter>
         </Card>
