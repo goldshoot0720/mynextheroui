@@ -17,7 +17,6 @@ import { useState, useRef } from "react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { Logo } from "@/components/icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -34,10 +33,9 @@ export const Navbar = () => {
       onMenuOpenChange={setIsMenuOpen}
       position="sticky"
     >
-      {/* 左側：Logo + 主選單（桌機用） */}
+      {/* 左側：主選單（桌機用） */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <Logo className="h-6 w-6" />
 
           <button
             aria-label="播放音訊 synthesis1"
