@@ -17,9 +17,7 @@ import { useState, useRef } from "react";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  Logo
-} from "@/components/icons";
+import { Logo } from "@/components/icons";
 
 export const Navbar = () => {
   const audio1 = useRef<HTMLAudioElement>(null);
@@ -39,17 +37,41 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <Logo className="h-6 w-6" />
 
-          <button onClick={() => audio1.current?.play()} aria-label="播放音訊 synthesis1" className="ml-2">
+          <button
+            aria-label="播放音訊 synthesis1"
+            className="ml-2"
+            onClick={() => audio1.current?.play()}
+          >
             ▶️
           </button>
-          <audio ref={audio1} src="/synthesis1.wav" />
+          <audio ref={audio1} src="/synthesis1.wav" preload="auto">
+            <track
+              kind="captions"
+              srcLang="zh"
+              label="中文字幕"
+              src="/synthesis1.vtt"
+              default
+            />
+          </audio>
 
           <span className="font-bold text-lg">草包鋒兄</span>
 
-          <button onClick={() => audio3.current?.play()} aria-label="播放音訊 synthesis3" className="ml-2">
+          <button
+            aria-label="播放音訊 synthesis3"
+            className="ml-2"
+            onClick={() => audio3.current?.play()}
+          >
             ▶️
           </button>
-          <audio ref={audio3} src="/synthesis3.wav" />
+          <audio ref={audio3} src="/synthesis3.wav" preload="auto">
+            <track
+              kind="captions"
+              srcLang="zh"
+              label="中文字幕"
+              src="/synthesis3.vtt"
+              default
+            />
+          </audio>
         </NavbarBrand>
 
         {/* 桌機版選單 */}
@@ -57,12 +79,12 @@ export const Navbar = () => {
           {siteConfig.navItems.filter(Boolean).map((item) => (
             <NavbarItem key={item!.href}>
               <NextLink
+                href={item!.href}
                 className={clsx(
                   linkStyles({ color: "foreground" }),
                   "data-[active=true]:text-primary data-[active=true]:font-medium"
                 )}
                 color="foreground"
-                href={item!.href}
               >
                 {item!.label}
               </NextLink>
@@ -88,8 +110,8 @@ export const Navbar = () => {
           {siteConfig.navMenuItems.filter(Boolean).map((item, index) => (
             <NavbarMenuItem key={`${item!.href}-${index}`}>
               <Link
-                color="foreground"
                 href={item!.href}
+                color="foreground"
                 size="lg"
                 onClick={() => setIsMenuOpen(false)} // 點擊後關閉選單
               >
