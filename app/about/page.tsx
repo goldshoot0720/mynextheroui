@@ -8,7 +8,6 @@ export default function AboutPage() {
     </div>
     <h1>
       Thank to Vercel
-
     </h1>
     <h1>
       Thank to Next.js
@@ -19,14 +18,14 @@ export default function AboutPage() {
     <h1>
       Thank to React
     </h1>
-    {/* <h1>
-      Thank to Supabase
-    </h1> */}
     <h1>
       Thank to ChatGPT
     </h1>
      <h1>
     Thank to Google(Text-to-Speech AI)
+    </h1>
+    <h1>
+      Thank to Font Awesome
     </h1>
     </>
   );

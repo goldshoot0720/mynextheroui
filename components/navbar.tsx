@@ -19,6 +19,8 @@ import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Logo } from "@/components/icons";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export const Navbar = () => {
   const audio1 = useRef<HTMLAudioElement>(null);
   const audio3 = useRef<HTMLAudioElement>(null);
@@ -82,10 +84,11 @@ export const Navbar = () => {
                 href={item!.href}
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  "data-[active=true]:text-primary data-[active=true]:font-medium flex items-center gap-1"
                 )}
                 color="foreground"
               >
+                <FontAwesomeIcon icon={item!.icon} className="w-4 h-4" />
                 {item!.label}
               </NextLink>
             </NavbarItem>
@@ -113,8 +116,10 @@ export const Navbar = () => {
                 href={item!.href}
                 color="foreground"
                 size="lg"
+                className="flex items-center gap-2"
                 onClick={() => setIsMenuOpen(false)} // 點擊後關閉選單
               >
+                <FontAwesomeIcon icon={item!.icon} className="w-5 h-5" />
                 {item!.label}
               </Link>
             </NavbarMenuItem>
